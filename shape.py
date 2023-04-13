@@ -8,15 +8,17 @@ words = [w.lower() for w in words]
 
 def get_shape(word):
     ans = ''
-    ind = 1
+    ind = 97
     dic = {}
     for c in word:
         if c not in dic:
             dic[c] = ind
             ind += 1
-        ans += str(dic[c])
+        ans += chr(dic[c])
     return ans
 
-
-words = [w for w in words if get_shape(w) == '112334']
+# print(get_shape('additional'))
+shape = 'abbcdcefag'
+words = [w for w in words if len(w) == len(shape)]
+words = [w for w in words if get_shape(w) == shape]
 print(words)
