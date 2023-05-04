@@ -1,4 +1,4 @@
-with open('words/words.txt', encoding='utf-8') as f:
+with open('words.txt', encoding='utf-8') as f:
     words = f.readlines()
 
 words = [w.strip() for w in words]
