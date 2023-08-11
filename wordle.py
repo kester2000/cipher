@@ -1,4 +1,5 @@
-from typing import List, Tuple
+import random
+import time
 
 
 def get(word: str, ans: str) -> str:
@@ -18,7 +19,7 @@ def get(word: str, ans: str) -> str:
     return ''.join(map(str, u))
 
 
-def dfs(words: List[str], try_list: List[str]) -> Tuple[float, str]:
+def dfs(words, try_list):
     assert (words)
     best_cnt = 99999
     best_word = '$'
@@ -44,27 +45,34 @@ def dfs(words: List[str], try_list: List[str]) -> Tuple[float, str]:
 with open('words.txt') as f:
     words = f.read().split()
 
-my_word = 'brief'
+my_word = 'basket'
 other_words = [w for w in words if len(w) == len(
     my_word) and any(c1 == c2 for c1, c2 in zip(w, my_word))]
 
 his = [
-    # ('after', '10001'),
-    # ('grand', '02200'),
-    # ('grain', '02200'),
-    # ('crash', '22200'),
-    # ('crazy', '22200'),
-    # ('crack', '22200'),
+    # ('dancer', get('dancer', 'decree')),
+    # ('render', get('render', 'decree')),
 ]
 
 possible_words = other_words
 for a, b in his:
     possible_words = [w for w in possible_words if get(a, w) == b]
 
-print(len(possible_words))
 print(possible_words)
+print(len(possible_words))
 if his:
     exp, word = dfs(possible_words, possible_words)
 else:
-    exp, word = dfs(possible_words, possible_words[:5])
+    t0 = time.time()
+    l = possible_words[:]
+    random.shuffle(l)
+    exp = 99999
+    word = ''
+    for i in l:
+        e0, w0 = dfs(possible_words, [i])
+        if e0 < exp:
+            exp = e0
+            word = w0
+        if time.time() - t0 > 10:
+            break
 print(exp, word)
