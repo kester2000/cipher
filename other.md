@@ -7,5 +7,5 @@
 | 单表替换             | quipquip                 | https://www.quipqiup.com/                    |
 | 各种加解密(莱文斯坦) | cyberchef                | https://cyberchef.org/                       |
 | crossword            | crossword-solver         | https://www.wordplays.com/crossword-solver/  |
-| 算组合游戏           | Combinatorial Game Suite | www.cgsuite.org                              |
-| 组合游戏书籍         | winning ways             | null                                           |
+| 算组合游戏           | Combinatorial Game Suite | https://www.cgsuite.org/                     |
+| 组合游戏书籍         | winning ways             | null                                         |
